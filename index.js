@@ -55,13 +55,9 @@ client.on("message", async message => {
     if(commands) commands.run(client, message, arguments)
 
 
- //   if(command === `${prefix}hallo`){
- //       return message.channel.send("Laat me met rust");
- //   }
-
-    if(command === `${prefix}doei`){
-        return message.channel.send("Eindelijk ben ik van je af");
-    }
+//    if(command === `${prefix}doei`){
+//        return message.channel.send("Eindelijk ben ik van je af");
+//    }
 
     if(command === `${prefix}watwiljelaterworden`){
         return message.channel.send("Stel dit soort domme vragen niet");
