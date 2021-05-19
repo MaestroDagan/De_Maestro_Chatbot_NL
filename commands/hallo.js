@@ -2,7 +2,7 @@ const testBot = require("discord.js");
 
 module.exports.run = async(client, message, args) => {
 
-    console.log("TEST");
+    return message.channel.send("Laat me met rust");
 
 }
 
