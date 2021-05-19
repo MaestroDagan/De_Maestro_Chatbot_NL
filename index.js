@@ -55,33 +55,6 @@ client.on("message", async message => {
     if(commands) commands.run(client, message, arguments)
 
 
-//    if(command === `${prefix}doei`){
-//        return message.channel.send("Eindelijk ben ik van je af");
-//    }
-
-    if(command === `${prefix}watwiljelaterworden`){
-        return message.channel.send("Stel dit soort domme vragen niet");
-    }
-
-    if(command === `${prefix}hoegaathet`){
-        return message.channel.send("Slecht, want jij valt me de hele tijd lastig");
-    }
-
-    if(command === `${prefix}watishetstil`){
-        return message.channel.send("Lekker weertje hé");
-    }
-    if(command === `${prefix}hoeheetje`){
-        return message.channel.send("Ik heet De Maestro Chatbot NL");
-    }
-
-    if(command === `${prefix}hebjeouders`){
-        return message.channel.send("Nee niet echt maar ik ben wel door iemand gemaakt type .botmaker om te zien wie het is");
-    }
-
-    if(command === `${prefix}botmaker`){
-        return message.channel.send("Dagan/De Maestro heeft mij gemaakt");
-    }
-
     if(command === `${prefix}commands`){
         
         var HelpEmbed = new testBot.MessageEmbed()
