@@ -52,7 +52,7 @@ client.on("message", async message => {
 
     var commands = client.commands.get(command.slice(prefix.length));
 
-    if(commands) commands.run(client, message, args)
+    if(commands) commands.run(client, message, arguments)
 
 
  //   if(command === `${prefix}hallo`){
