@@ -1,8 +1,33 @@
 const testBot = require("discord.js");
 const botConfig = require ("./botconfig.json");
 
+const fs = require("fs")
+
 const client = new testBot.Client();
 client.login(process.env.token);
+client.commands = new testBot.Collection();
+
+fs.readdir("./commands/" , (err, files) => {
+
+    if(err) console.log(err);
+    
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+    
+    if(jsFiles.lenght <=0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        client.commands.set(fileGet.help.name, fileGet);
+        
+    })
+    
+ });
 
 client.on("ready", async () => { 
 
@@ -24,9 +49,15 @@ client.on("message", async message => {
 
     var command = messageArray[0];
 
-    if(command === `${prefix}hallo`){
-        return message.channel.send("Laat me met rust");
-    }
+
+    var commands = client.commands.get(command.slice(prefix.length));
+
+    if(commands) commands.run(bot, message, args)
+
+
+ //   if(command === `${prefix}hallo`){
+ //       return message.channel.send("Laat me met rust");
+ //   }
 
     if(command === `${prefix}doei`){
         return message.channel.send("Eindelijk ben ik van je af");
